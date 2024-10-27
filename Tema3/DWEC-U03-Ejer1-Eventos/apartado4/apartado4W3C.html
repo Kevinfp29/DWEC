@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 4</title>
+</head>
+<body>
+    <img src="eugimlogo.gif" alt="" id="imagen">
+    <script>
+        function cambiarImagen() {
+            document.getElementById("imagen").setAttribute("src","eugimlogo2.gif");
+        }
+        function cambiarImagen2() {
+            document.getElementById("imagen").setAttribute("src","eugimlogo.gif");
+        }
+        document.getElementById("imagen").addEventListener("mouseover",cambiarImagen,false);
+        document.getElementById("imagen").addEventListener("mouseout",cambiarImagen2,false);
+    </script>
+</body>
+</html>

@@ -22,7 +22,13 @@
             width: 50px;
             margin: 5px;
         }
-    </style>
+    </style>  
+</head>
+<body>
+    <div id="azul"></div>
+    <div id="rojo"></div>
+    <div id="amarillo"></div>
+    <div id="verde"></div>
     <script>
         function inicio() {
             alert("Bienvenido");
@@ -42,13 +48,10 @@
         function verde() {
             document.body.style.backgroundColor = "green";
         }
+        document.getElementById("azul").addEventListener("mouseover",azul,false);
+        document.getElementById("rojo").addEventListener("mouseover",rojo,false);
+        document.getElementById("amarillo").addEventListener("mouseover",amarillo,false);
+        document.getElementById("verde").addEventListener("mouseover",verde,false);
     </script>
-    
-</head>
-<body id="body" onload="inicio()" onbeforeunload="salir">
-    <div id="azul" onmouseover="azul()"></div>
-    <div id="rojo" onmouseover="rojo()"></div>
-    <div id="amarillo" onmouseover="amarillo()"></div>
-    <div id="verde" onmouseover="verde()"></div>
 </body>
 </html>
