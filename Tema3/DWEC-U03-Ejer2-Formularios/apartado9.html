@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 9</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="valor1" id="valor1" placeholder="Primer valor">
+        <input type="text" name="valor2" id="valor2" placeholder="Segundo valor">
+        <button id="calcular" type="button">Calcular</button>
+        =
+        <input type="text" name="resultado" id="resultado" placeholder="Resultado"><br>
+        <input type="radio" id="suma" name="operacion" value="suma">
+        <label for="suma">Suma</label><br>
+        <input type="radio" id="resta" name="operacion" value="resta">
+        <label for="resta">Resta</label><br>
+        <input type="radio" id="multiplicacion" name="operacion" value="multiplicacion">
+        <label for="multiplicacion">Multiplicación</label><br>
+        <input type="radio" id="division" name="operacion" value="division">
+        <label for="division">División</label><br>
+    </form>
+    <script>
+        document.getElementById("suma").addEventListener("click", activarSuma, false);
+        document.getElementById("resta").addEventListener("click", activarResta, false);
+        document.getElementById("multiplicacion").addEventListener("click", activarMultiplicacion, false);
+        document.getElementById("division").addEventListener("click", activarDivision, false);
+        document.getElementById("calcular").addEventListener("click",calcular,false);
+        function activarSuma() {
+            document.getElementById("calcular").innerText = "Suma";
+        }
+
+        function activarResta() {
+            document.getElementById("calcular").innerText = "Resta";
+        }
+
+        function activarMultiplicacion() {
+            document.getElementById("calcular").innerText = "Multiplicación";
+        }
+
+        function activarDivision() {
+            document.getElementById("calcular").innerText = "División";
+        }
+        
+        function calcular() {
+            let operacion = document.getElementById("calcular").innerText;
+            let valor1 = parseInt(document.getElementById("valor1").value);
+            let valor2 = parseInt(document.getElementById("valor2").value);
+            if (operacion == "Suma") {
+                resultado = valor1 + valor2;
+            }
+            if (operacion == "Resta") {
+                resultado = valor1 - valor2;
+            }
+            if (operacion == "Multiplicación") {
+                resultado = valor1 * valor2;
+            }
+            if (operacion == "División"){
+                if(valor1 == 0){
+                    alert("No se puede hacer la operacion");
+                    return;
+                }
+                resultado = valor1 / valor2;
+            }
+            document.getElementById("resultado").value = resultado;
+        }
+    </script>
+</body>
+</html>

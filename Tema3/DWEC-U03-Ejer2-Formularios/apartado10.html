@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 10</title>
+</head>
+<body>
+    <form action="">
+        <p id="contador">Quedan 100 caracteres disponibles</p>
+        <textarea name="texto" id="texto"></textarea>
+    </form>
+    <script>
+       document.getElementById("texto").addEventListener("keypress",controlar,false);
+       function controlar() {
+            frase = (document.getElementById("contador").innerText).split(" ");
+            frase[1] = 100 - (document.getElementById("texto").value).length;
+            fraseNueva = "";
+            for (let i = 0; i < frase.length; i++) {
+                fraseNueva += frase[i] + " ";
+            }
+            document.getElementById("contador").innerText = fraseNueva;
+       }
+    </script>
+</body>
+</html>
