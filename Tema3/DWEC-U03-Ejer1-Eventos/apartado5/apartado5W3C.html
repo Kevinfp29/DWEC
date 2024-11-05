@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 5</title>
+</head>
+<body>
+    <a href="http://www.iesjulioverne.es" id="enlace">Pulsa aqui</a>
+    <script>
+        function alerta() {
+            event.preventDefault();
+            alert("La carga de la url del enlace se ha cancelado");
+        }
+        document.getElementById("enlace").addEventListener("click",alerta,false);
+    </script>
+</body>
+</html>

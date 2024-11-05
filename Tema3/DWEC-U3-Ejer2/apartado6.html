@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 6</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="texto"><br>
+        <button id="boton" type="button">Pulsar</button><br>
+        <textarea name="noOrdenado" id="noOrdenado"></textarea>
+        <textarea name="ordenado" id="ordenado"></textarea><br>
+        <button id="ordenar" type="button">Ordenar</button><br>
+        <button id="reiniciar" type="reset">Reiniciar</button><br>
+        <input type="text" id="numVeces"><br>
+        <button id="eliminar" type="button">Eliminar</button>
+    </form>
+    <script>
+        document.getElementById("boton").addEventListener("click",copiar,false);
+        document.getElementById("ordenar").addEventListener("click",ordenar,false);
+        document.getElementById("eliminar").addEventListener("click",eliminar,false);
+        function copiar() {
+            document.getElementById("noOrdenado").value += document.getElementById("texto").value + "\n";
+        }
+        function ordenar() {
+            let lista = document.getElementById("noOrdenado").value.split("\n");
+            lista.sort();
+            let texto = "";
+            for (let i = 0; i < lista.length; i++) {
+                texto += lista[i] + "\n";
+            }
+            document.getElementById("ordenado").value = texto;
+        }
+        function eliminar() {
+            let lista = document.getElementById("noOrdenado").value.split("\n");
+            let texto = "";
+            for (let i = 0; i < lista.length; i++) {
+                if (i !== (parseInt(document.getElementById("numVeces").value)-1)) {
+                    texto += lista[i] + "\n";
+                }
+            }
+            document.getElementById("noOrdenado").value = texto;
+        }
+    </script>
+</body>
+</html>

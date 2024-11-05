@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 5</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="texto"><br>
+        <button id="boton" type="button">Pulsar</button><br>
+        <textarea name="noOrdenado" id="noOrdenado"></textarea>
+        <textarea name="ordenado" id="ordenado"></textarea><br>
+        <button id="ordenar" type="button">Ordenar</button><br>
+        <button id="reiniciar" type="reset">Reiniciar</button>
+    </form>
+    <script>
+        document.getElementById("boton").addEventListener("click",copiar,false);
+        document.getElementById("ordenar").addEventListener("click",ordenar,false);
+        function copiar() {
+            document.getElementById("noOrdenado").value += document.getElementById("texto").value + "\n";
+        }
+        function ordenar() {
+            lista = document.getElementById("noOrdenado").value.split("\n");
+            lista.sort();
+            texto = "";
+            for (let i = 0; i < lista.length; i++) {
+                texto += lista[i] + "\n";
+            }
+            document.getElementById("ordenado").value = texto;
+        }
+    </script>
+</body>
+</html>

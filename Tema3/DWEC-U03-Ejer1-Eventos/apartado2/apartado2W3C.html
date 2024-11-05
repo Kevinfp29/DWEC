@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 2</title>
+</head>
+<body>
+    <button id="boton">Pulsame</button>
+    <p id="parrafo"></p>
+    <script>
+        function escribir() {
+            document.getElementById("parrafo").innerText = "¡Hola Mundo!";
+        }
+        document.getElementById("boton").addEventListener('click', escribir, false);
+    </script>
+</body>
+</html>

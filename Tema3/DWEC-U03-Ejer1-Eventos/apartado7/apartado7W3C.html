@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 7</title>
+    <style>
+        #azul{
+            background-color: blue;
+        }
+        #rojo{
+            background-color: red;
+        }
+        #amarillo{
+            background-color: yellow;
+        }
+        #verde{
+            background-color: green;
+        }
+        div{
+            height: 50px;
+            width: 50px;
+            margin: 5px;
+        }
+    </style>  
+</head>
+<body>
+    <div id="azul"></div>
+    <div id="rojo"></div>
+    <div id="amarillo"></div>
+    <div id="verde"></div>
+    <script>
+        function inicio() {
+            alert("Bienvenido");
+        }
+        function salir() {
+            alert("Adios");
+        }
+        function azul() {
+            document.body.style.backgroundColor = "blue";
+        }
+        function rojo() {
+            document.body.style.backgroundColor = "red";
+        }
+        function amarillo() {
+            document.body.style.backgroundColor = "yellow";
+        }
+        function verde() {
+            document.body.style.backgroundColor = "green";
+        }
+        document.getElementById("azul").addEventListener("mouseover",azul,false);
+        document.getElementById("rojo").addEventListener("mouseover",rojo,false);
+        document.getElementById("amarillo").addEventListener("mouseover",amarillo,false);
+        document.getElementById("verde").addEventListener("mouseover",verde,false);
+    </script>
+</body>
+</html>
