@@ -11,7 +11,7 @@
         <textarea name="texto" id="texto"></textarea>
     </form>
     <script>
-       document.getElementById("texto").addEventListener("keypress",controlar,false);
+       document.getElementById("texto").addEventListener("keydown",controlar,false);
        function controlar() {
             frase = (document.getElementById("contador").innerText).split(" ");
             frase[1] = 100 - (document.getElementById("texto").value).length;
