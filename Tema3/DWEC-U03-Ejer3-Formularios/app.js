@@ -27,47 +27,104 @@ window.onload = function() {
     document.getElementById("nombre").addEventListener("blur", mayusculaNom, false);
     document.getElementById("apellidos").addEventListener("blur",mayusculaApe,false);
 };
-
+let intentos = 0;
 function validar() {
-let inputs = document.querySelectorAll("input");
-
-//Elimina la clase error de todos los inputs
-for (let i = 0; i < inputs.length; i++) {
-    inputs[i].classList.remove("error");
-}
-//Comprueba que el nombre no este vacio
-let nombre = document.getElementById("nombre").value;
-if (nombre.length == 0) {
-    document.getElementById("nombre").classList.add("error");
-    //Desactiva el boton enviar
-    event.preventDefault();
-}
-//
-let apellidos = document.getElementById("apellidos").value;
-if (apellidos.length == 0) {
-    document.getElementById("apellidos").classList.add("error");
-    event.preventDefault();
-}
-
-let edad = document.getElementById("edad").value;
-if(isNaN(edad) ||edad < 0 || edad > 105 || edad.length == 0){
-    document.getElementById("edad").classList.add("error");
-    event.preventDefault();
-}
-
-let dni = document.getElementById("dni").value;
-let suma = 0, resto = 0;
-if((!(/^\d{8}[A-Z]$/).test(dni))){
-    document.getElementById("edad").classList.add("error");
-    event.preventDefault();
-}else{
-    for (let i = 0; i < dni.length-1; i++) {
-        suma += parseInt(dni.charAt(i));
+    let errores = "";
+    let inputs = document.querySelectorAll("input");
+    document.getElementById("provincia").classList.remove("error");
+    //Elimina la clase error de todos los inputs
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].classList.remove("error");
     }
-    dni.
-    resto = suma%23;
+    //Comprueba que el nombre no este vacio
+    let nombre = document.getElementById("nombre").value;
+    if (nombre.length == 0) {
+        document.getElementById("nombre").classList.add("error");
+        //Desactiva el boton enviar
+        event.preventDefault();
+        errores += "-El campo nombre no puede estar vacio" + "\n";
+    }
+    //Comprueba que el apellido no este vacio
+    let apellidos = document.getElementById("apellidos").value;
+    if (apellidos.length == 0) {
+        document.getElementById("apellidos").classList.add("error");
+        event.preventDefault();
+        errores += "-El campo apellido no puede estar vacio" + "\n";
+    }
 
-}
+    //Comprueba que la edad sea un numero, sea mayor de 0, menor de 105 y que no este vacio
+    let edad = document.getElementById("edad").value;
+    if(isNaN(edad) ||edad < 0 || edad > 105 || edad.length == 0){
+        document.getElementById("edad").classList.add("error");
+        event.preventDefault();
+        errores += "-La edad es invalida" + "\n";
+    }
+
+    //Comprueba que sean ocho numeros y una letra, despues comprueba que la letra sea la correcta
+    let dni = document.getElementById("nif").value;
+    let suma = 0, resto = 0;
+    if(!/^\d{8}[A-Z]$/.test(dni)){
+        document.getElementById("nif").classList.add("error");
+        event.preventDefault();
+        errores += "-Falta un NIF valido" + "\n";
+    }else{
+        let numeroDNI = parseInt(dni.slice(0, 8), 10);
+        resto = numeroDNI % 23;
+        let cadena = "TRWAGMYFPDXBNJZSQVHLCKE";
+        if (cadena.charAt(resto) != dni.charAt(8)) {
+            document.getElementById("nif").classList.add("error");
+            event.preventDefault();
+            errores += "-Falta un NIF valido" + "\n";
+        }
+    }
+
+    //Comprueba el correo electronico mediante una expresion regular
+    let email = document.getElementById("email").value;
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
+        document.getElementById("email").classList.add("error");
+        event.preventDefault();
+        errores += "-El campo email esta incorrecto" + "\n";
+    }
+
+    //Comprueba que la provincia esta seleccionada
+    let provincia = document.getElementById("provincia").value;
+    if (provincia == 0) {
+        document.getElementById("provincia").classList.add("error");
+        event.preventDefault();
+        errores += "-Debes seleccionar una provincia" + "\n";
+    }
+
+    //Comprueba la fecha con una expresion regular
+    let fecha = document.getElementById("fecha").value;
+    if(!/^(0[1-9]|[12][0-9]|3[01])[-\/](0[1-9]|1[0-2])[-\/](\d{4})$/.test(fecha)){
+        document.getElementById("fecha").classList.add("error");
+        event.preventDefault();
+        errores += "-Fecha invalida" + "\n";
+    }
+
+    //Comprueba que el telefono tenga 9 digitos
+    let telefono = document.getElementById("telefono").value;
+    if (isNaN(telefono) || telefono.length != 9 || telefono.length == 0) {
+        document.getElementById("telefono").classList.add("error");
+        event.preventDefault();
+        errores += "-Telefono invalida" + "\n";
+    }
+
+    //Comprueba la hora con una expresion regular
+    let hora = document.getElementById("hora").value;
+    if (!/^(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9])$/.test(hora)) {
+        document.getElementById("hora").classList.add("error");
+        event.preventDefault();
+        errores += "-Hora invalida" + "\n";
+    }
+
+    //Insertamos lo errores que hemos ido recogiendo en cada uno de los campos
+    document.getElementById("errores").innerText = errores;
+    
+    
+
+    //Actualizamos los intentos
+    document.getElementById("intentos").innerHTML = ++intentos;
 }
 
 function mayusculaNom() {
@@ -80,7 +137,7 @@ function mayusculaNom() {
             nuevoNombre += nombre.charAt(i);
         }
     }
-   document.getElementById("nombre").value = nuevoNombre;
+    document.getElementById("nombre").value = nuevoNombre;
 }
 
 function mayusculaApe() {
