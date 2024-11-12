@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ejercicio 5-4 - DOM básico</title>
+</head>
+
+<body id="pagina">
+    <p>
+    Aumenta el tamaño de la fuente de toda la página<br />
+    Tamaño normal<br />
+    Cambia el color del fondo <br />
+    Color normal<br />
+    <div id="p2">
+        Aumenta el tamaño de la fuente solo de esta sección<br />
+        Tamaño normal<br />
+        Cambia el color del fondo de esta sección<br />
+        Color normal <br />
+        Cambia el tipo de fuente empleada en esta sección al situar el ratón encima de este vínculo
+    </div>
+    </p>
+    <p>
+    <br /><a id="a1" href="#">Aumenta el tamaño de la fuente de toda la página</a>
+    <br /><a id="a2" href="#">Tamaño normal</a>
+    <br /><a id="a3" href="#">Cambia el color del fondo</a>
+    <br /><a id="a4" href="#">Color normal</a>
+    <br /><a id="a5" href="#">Aumenta el tamaño de la fuente solo de esta sección</a>
+    <br /><a id="a6" href="#">Tamaño normal</a>
+    <br /><a id="a7" href="#";>Cambia el color del fondo de esta sección</a>
+    <br /><a id="a8" href="#">Color normal</a>
+    <br /><a id="a9" href="#">Cambia el tipo de fuente empleada en esta sección al situar el ratón encima de este vínculo</a>
+    </p>
+    <script>
+        document.getElementById("a1").addEventListener("click",aumentarsize,false);
+        document.getElementById("a2").addEventListener("click",sizeNormal,false);
+        document.getElementById("a3").addEventListener("click",cambiarColor,false);
+        document.getElementById("a4").addEventListener("click",colorNormal,false);
+        document.getElementById("a5").addEventListener("click",aumentarsizeV2,false);
+        document.getElementById("a6").addEventListener("click",sizeNormalV2,false);
+        document.getElementById("a7").addEventListener("click",cambiarColorV2,false);
+        document.getElementById("a8").addEventListener("click",colorNormalV2,false);
+        document.getElementById("a9").addEventListener("mouseover",cambiarTipoLetra,false);
+        
+        let size = document.body.style.fontSize;
+        let color = document.body.style.backgroundColor;
+
+        function aumentarsize(){
+            document.body.style.fontSize = "25px"
+        }
+        function sizeNormal() {
+            document.body.style.fontSize = size;
+        }
+        function cambiarColor(){
+            document.body.style.backgroundColor = "red";
+        }
+        function colorNormal(){
+            document.body.style.backgroundColor = color;
+        }
+        function aumentarsizeV2() {
+            document.getElementById("p2").style.fontSize = "25px";
+        }
+
+        function sizeNormalV2() {
+            document.getElementById("p2").style.fontSize = size;
+        }
+
+        function cambiarColorV2() {
+            document.getElementById("p2").style.backgroundColor = "red";
+        }
+
+        function colorNormalV2() {
+            document.getElementById("p2").style.backgroundColor = color;
+        }
+        function cambiarTipoLetra(){
+            document.getElementById("p2").style.fontFamily = "Comic Sans MS";
+        }
+    </script>
+</body>
+</html>

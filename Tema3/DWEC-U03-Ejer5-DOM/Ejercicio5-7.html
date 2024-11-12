@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ejercicio 5-7 - DOM básico</title>
+    
+    <style type="text/css">
+        .oculto { display: none; }
+        .visible { display: inline; }
+    </style>
+
+</head>
+
+<body>
+    <form action="" method="">
+        Seleccione un curso <br />
+        <input type="radio" name="seleccion" id="radio1" value="1" selected="selected" />HTML<br />
+        <input type="radio" name="seleccion" id="radio2" value="2" />CSS<br />
+        <input type="radio" name="seleccion" id="radio3" value="3" />Otro<br />
+        <div id="adicional" class="oculto" >
+        Especifique: <input type="text" name="curso" size ="25" /><br />
+        </div>
+        <input type="button" value="Enviar">
+    </form>
+    <script>
+        document.getElementById("radio3").addEventListener("click",mostrarAdicional,false);
+        function mostrarAdicional(){
+            document.getElementById("adicional").className = "visible";
+        }
+    </script>
+</body>
+</html>

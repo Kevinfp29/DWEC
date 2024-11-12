@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let lista = document.createElement("ol");
+        let elementos = ["Adobe", "Apple", "IBM"];
+        for (let i = 0; i < elementos.length; i++) {
+            let a = document.createElement("a");
+            if (elementos[i] == "Adobe") {
+                a.setAttribute("href", "https://www.adobe.com/home?acomLocale=es");
+                a.setAttribute("id","adobe");
+            }
+            if (elementos[i] == "Apple") {
+                a.setAttribute("href", "https://www.apple.com/es/");
+                a.setAttribute("id","apple"); 
+            }
+            if (elementos[i] == "IBM") {
+                a.setAttribute("href", "https://www.ibm.com/es-es"); 
+                a.setAttribute("id","ibm");
+            }
+            let li = document.createElement("li");
+            li.textContent = elementos[i];
+            a.appendChild(li);
+            lista.appendChild(a);
+        }
+        document.body.appendChild(lista);
+        let input = document.createElement("input"); 
+        input.setAttribute("id", "texto");
+        document.body.appendChild(input);
+        document.getElementById("adobe").addEventListener("mouseover",mostrarURLAdobe,false);
+        document.getElementById("apple").addEventListener("mouseover",mostrarURLApple,false);
+        document.getElementById("ibm").addEventListener("mouseover",mostrarURLIBM,false);
+
+        function mostrarURLAdobe() {
+            let texto = document.getElementById("adobe").getAttribute("href");
+            document.getElementById("texto").value = texto;
+        }
+        function mostrarURLApple() {
+            let texto = document.getElementById("apple").getAttribute("href");
+            document.getElementById("texto").value = texto;
+        }
+        function mostrarURLIBM() {
+            let texto = document.getElementById("ibm").getAttribute("href");
+            document.getElementById("texto").value = texto;
+        }
+    </script>
+</body>
+</html>

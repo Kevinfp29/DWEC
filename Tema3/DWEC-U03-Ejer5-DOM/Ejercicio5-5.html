@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ejercicio 5-5 - DOM básico</title>
+</head>
+
+<body>
+    <p id="contenidos1">[1] Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+    commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae,
+    rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae,
+    ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada.
+    Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque,
+    felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non
+    dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis
+    scelerisque.</p>
+    
+    <a id="enlace1" href="#">Ocultar contenidos</a>
+    <script>
+        document.getElementById("enlace1").addEventListener("click",cambiarContenido,false);
+
+        function cambiarContenido() {
+            let enlace = document.getElementById("enlace1");
+            let contenido = document.getElementById("contenidos1");
+            if (enlace.textContent == "Ocultar contenidos") {
+                contenido.style.display = "none";
+                enlace.textContent = "Mostrar contenidos"
+            }else{
+                contenido.style.display = "block";
+                enlace.textContent = "Ocultar contenidos"
+            }
+        }
+    </script>
+</body>
+</html>
