@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+      <title>cookies</title>
+      <meta charset="UTF-8"> 
+      <script type="text/javascript" src="app.js"></script>
+      <style>
+            #footer {
+                  width: 100%;
+                  height: 50px;
+                  color: #000;
+                  border-top: 2px solid #000;
+                  position: absolute;
+                  bottom: 0;
+            }
+      </style>
+</head>
+
+<body>
+<h1>Página de configuración</h1>
+<form action="#" name="datos">
+<p>Fondo: </p>
+<p>...Color de fondo: 
+<select name="colorFondo">
+      <option value="aqua">Azul claro</option>
+      <option value="white">Blanco *</option>
+      <option value="silver">Gris</option>
+      <option value="#b88f67">Ocre</option>
+      <option value="#b5ef65">Verde claro</option>
+      <option value="yellow">Amarillo</option>
+</select> </p>
+<p>Cabecera: </p>
+<p>... Color: 
+<select name="colorH">
+      <option value="blue">Azul</option>
+      <option value="grey">Gris</option>
+      <option value="maroon">Marron</option>
+      <option value="black">Negro *</option>
+      <option value="red">Rojo</option>
+      <option value="green">Verde</option>
+      <option value="purple">Purpura</option>
+</select>
+... Tipo de letra: 
+<select name="fuenteH">
+      <option value="Arial">Arial</option>
+      <option value="Comic Sans MS">Comic Sans MS</option>
+      <option value="Times New Roman">Times New Roman *</option>
+      <option value="Verdana">Verdana</option>
+      <option value="Courier new">Courier new</option>
+</select>
+ ... Alineación: 
+<select name="alinearH">
+      <option value="left">Izquierda *</option>
+      <option value="right">Derecha</option>
+      <option value="Center">Centrada</option>
+</select>
+ ... Tamaño: 
+<select name="tamanoH">
+      <option value="1.5em">Normal *</option>
+      <option value="2em">Grande</option>
+      <option value="3em">Muy grande</option>
+</select>
+</p>
+<p>Párrafos</p>
+<p>... Color: 
+<select name="colorP">
+      <option value="blue">Azul</option>
+      <option value="grey">Gris</option>
+      <option value="maroon">Marron</option>
+      <option value="black">Negro *</option>
+      <option value="red">Rojo</option>
+      <option value="green">Verde</option>
+      <option value="purple">Purpura</option>
+</select>
+... Tipo de letra: 
+<select name="fuenteP">
+      <option value="Arial">Arial</option>
+      <option value="Comic Sans MS">Comic Sans MS</option>
+      <option value="Times New Roman">Times New Roman *</option>
+      <option value="Verdana">Verdana</option>
+      <option value="Courier new">Courier new</option>
+</select>
+ ... Alineación: 
+<select name="alinearP">
+      <option value="left">Izquierda *</option>
+      <option value="right">Derecha</option>
+      <option value="center">Centrada</option>
+      <option value="justify">Justificada</option>
+</select>
+ ... Tamaño: 
+<select name="tamanoP">
+      <option value="0.8em">Pequeño</option>
+      <option value="1em">Normal *</option>
+      <option value="1.2em">Grande</option>
+</select>
+</p>
+<br />
+<br />
+<p>Estilo predeterminado: Color de fondo: blanco; 
+Cabecera y párrafos: Color negro, tipo de letra Times New Roman, 
+tamaño normal, alineación izquierda.</p>
+<input id="btn_guardar" type="button" value="Guardar configuración" /> ...
+<input id="btn_reset" type="button" value="Volver a predeterminada" /> ...
+<input id="btn_pag2" type="button" value="Cargar siguiente página" /> ...
+</p>
+</form>
+
+<div id="footer">
+      DWEC: Unidad 3 - Uso de cookies
+</div>
+
+</body>
+
+</html>
