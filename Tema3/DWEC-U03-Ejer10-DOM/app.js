@@ -9,13 +9,16 @@ function iniciar(){
     document.getElementsByClassName("color6")[0].addEventListener("click",color6,false);
     let tds = document.querySelectorAll("table.tablerodibujo td");
     for (let i = 0; i < tds.length; i++) {
-        tds[i].addEventListener("click",colorear,false);
+        tds[i].removeEventListener("click",asignarColorear,false);
+        tds[i].addEventListener("click",asignarColorear,false);
     }
 }
 
-function colorear() {
-    alert("funciona");
-
+function asignarColorear() {
+    let tds = document.querySelectorAll("table.tablerodibujo td");
+    for (let i = 0; i < tds.length; i++) {
+        tds[i].addEventListener("mouseover", colorear, false);
+    }
 }
 
 //CAMBIAR COLORES Y SELECCIONADO
@@ -49,7 +52,10 @@ function resetearSeleccionado() {
     let partes = clases.split(" ");
     document.getElementsByClassName(partes[0])[0].setAttribute("class",partes[0]);
 }
-
+function colorear() {
+    let colorSeleccionado = document.querySelector(".seleccionado").classList[0];
+    this.setAttribute("class",colorSeleccionado);
+}
 //CREAR TABLAS
 function crearTabla() {
     let tabla = document.createElement("table");
