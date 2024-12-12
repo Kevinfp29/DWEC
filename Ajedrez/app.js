@@ -25,12 +25,34 @@ window.onload = function() {
     }
     */
     let table = document.createElement("table");
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 8; i++) {
         let tr = document.createElement("tr");
-        for (let j = 0; j < 10; j++) {
+        for (let j = 0; j < 8; j++) {
+            let img = document.createElement("img");
+            if ((i==0) && (j==0 || j==7)) {
+                img.setAttribute("src","imagenes/torreNegra.png");
+            }
+            if ((i==0) && (j==1 || j==6)) {
+                img.setAttribute("src","imagenes/caballoNegra.png");
+            }
+            if ((i==0) && (j==2 || j==5)) {
+                img.setAttribute("src","imagenes/alfilNegra.png");
+            }
+            if ((i==0) && (j==3)) {
+                img.setAttribute("src","imagenes/reinaNegra.png");
+            }
+            if ((i==0) && (j==4)) {
+                img.setAttribute("src","imagenes/reyNegra.png");
+            }
+            if (i==1){
+                img.setAttribute("src","imagenes/peonNegra.png");
+            }
+            img.style.width = "200px"
             let td = document.createElement("td");
-            td.style.width = "50px";
-            td.style.height = "50px";
+            td.appendChild(img);
+            td.style.width = "300px";
+            td.style.height = "300px";
+            td.style.textAlign = "center";
             if (i%2==0) {
                 if(j%2==0){
                     td.style.backgroundColor = "black";
